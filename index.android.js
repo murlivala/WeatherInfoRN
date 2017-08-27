@@ -54,7 +54,7 @@ constructor(props) {
   updateText = () => {
       NativeModules.
 	  UIManagerModule.
-	  update((aWeatherState,
+	  getWeatherUpdate((aWeatherState,
               aVisibility,
 			  aHumidity,
 			  aMaxTemp,

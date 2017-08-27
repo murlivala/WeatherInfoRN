@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static mock.weatherfeed.AppUtils.uiManagerModule;
-
 public class AnExampleReactPackage implements ReactPackage {
 
     @Override
@@ -26,9 +24,7 @@ public class AnExampleReactPackage implements ReactPackage {
     public List<NativeModule> createNativeModules(
             ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-
-        uiManagerModule = new UIManagerModule(reactContext);
-        modules.add(uiManagerModule);
+        modules.add(new UIManagerModule(reactContext));
 
         return modules;
     }

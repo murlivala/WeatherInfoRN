@@ -7,8 +7,6 @@ package mock.weatherfeed;
 public class WeatherInfo {
     static boolean isWeatherInfoAvailable;
     static String weather_state_name	;//"Heavy Rain"
-    static String weather_state_abbr	;//"hr"
-    static String wind_direction_compass;//	"WNW"
     static String created	;//"2017-08-24T11:40:00.464370Z"
     static String applicable_date;//	"2017-08-24"
     static String min_temp	;//13.022000000000002

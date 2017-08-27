@@ -12,8 +12,6 @@ import android.view.View;
 
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
-import com.facebook.react.bridge.Callback;
-import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 
@@ -33,10 +31,8 @@ public class MainActivity extends AppCompatActivity implements ResponseCallback,
     //React native
     private ReactRootView mReactRootView;
     private ReactInstanceManager mReactInstanceManager;
-    UIManagerModule uiManagerModule;
     private ProgressDialog mProgressDialog;
 
-    Callback rnCallback;
     private final String REACT_APP = "WeatherInfoRN";
 
     @Override
@@ -161,13 +157,15 @@ public class MainActivity extends AppCompatActivity implements ResponseCallback,
                 serviceDataClass.execute();
                 break;
             case Constants.PARSE_WEATHER:
-                Log.d(TAG,"onSuccess - "+WeatherInfo.weather_state_name);
-                Log.d(TAG,"onSuccess - "+WeatherInfo.max_temp);
-                Log.d(TAG,"onSuccess - "+WeatherInfo.min_temp);
-                Log.d(TAG,"onSuccess - "+WeatherInfo.humidity);
-                Log.d(TAG,"onSuccess - "+WeatherInfo.predictability);
-                Log.d(TAG,"onSuccess - "+WeatherInfo.air_pressure);
-                Log.d(TAG,"onSuccess - "+WeatherInfo.visibility);
+                if(BuildConfig.DEBUG){
+                    Log.d(TAG,"onSuccess - "+WeatherInfo.weather_state_name);
+                    Log.d(TAG,"onSuccess - "+WeatherInfo.max_temp);
+                    Log.d(TAG,"onSuccess - "+WeatherInfo.min_temp);
+                    Log.d(TAG,"onSuccess - "+WeatherInfo.humidity);
+                    Log.d(TAG,"onSuccess - "+WeatherInfo.predictability);
+                    Log.d(TAG,"onSuccess - "+WeatherInfo.air_pressure);
+                    Log.d(TAG,"onSuccess - "+WeatherInfo.visibility);
+                }
                 dismiss();
                 showReactNativeView();
                 break;
@@ -177,8 +175,6 @@ public class MainActivity extends AppCompatActivity implements ResponseCallback,
 
     @Override
     public void onFailure(String errorMessage) {
-        /*Toast.makeText(getApplicationContext(),"Error:"+errorMessage,Toast.LENGTH_SHORT).show();
-        dismiss();*/
         dismiss();
         Log.d(TAG,"onSuccess - "+errorMessage);
     }
