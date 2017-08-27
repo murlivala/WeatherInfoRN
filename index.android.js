@@ -32,7 +32,6 @@ constructor(props) {
         };
       }
   render() {
-	    
     return (
       <View style={styles.container}>
 	    <Text style={styles.heading}>React Native View</Text>
@@ -53,32 +52,36 @@ constructor(props) {
     )
   }
   updateText = () => {
-      NativeModules.UIManagerModule.update((aWeatherState,
-	                                        aVisibility,
-											aHumidity,
-											aMaxTemp,
-											aMinTemp,
-											aCreatedOn,
-											aApplicableOn,
-											aAvgTemp,
-											aWindSpeed,
-											aWindDirection,
-											aAirPressure,
-											aPredictability)=> { 
-	  this.setState({
-		  weatherState: aWeatherState,
-		  visibility: aVisibility,
-		  humidity: aHumidity,
-		  maxTemp: aMaxTemp,
-		  minTemp: aMinTemp,
-		  createdOn: aCreatedOn,
-		  applicableOn: aApplicableOn,
-		  avgTemp: aAvgTemp,
-		  windSpeed: aWindSpeed,
-		  windDirection: aWindDirection,
-		  airPressure: aAirPressure,
-		  predictability: aPredictability,
-		  btnTxt: 'Bribane yesterday\'s weather info'}) });		  
+      NativeModules.
+	  UIManagerModule.
+	  update((aWeatherState,
+              aVisibility,
+			  aHumidity,
+			  aMaxTemp,
+			  aMinTemp,
+			  aCreatedOn,
+			  aApplicableOn,
+			  aAvgTemp,
+			  aWindSpeed,
+			  aWindDirection,
+			  aAirPressure,
+			  aPredictability)=> {
+                  this.setState({
+		              weatherState: aWeatherState,
+		              visibility: aVisibility,
+		              humidity: aHumidity,
+		              maxTemp: aMaxTemp,
+		              minTemp: aMinTemp,
+		              createdOn: aCreatedOn,
+		              applicableOn: aApplicableOn,
+		              avgTemp: aAvgTemp,
+		              windSpeed: aWindSpeed,
+		              windDirection: aWindDirection,
+		              airPressure: aAirPressure,
+		              predictability: aPredictability,
+		              btnTxt: 'Bribane yesterday\'s weather info'
+                 })
+       });
   }
 		
 }
