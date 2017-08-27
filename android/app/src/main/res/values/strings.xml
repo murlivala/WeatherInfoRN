@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">WeatherFeed</string>
+    <string name="network_error">Please check your Internet.</string>
+</resources>
